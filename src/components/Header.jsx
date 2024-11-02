@@ -4,11 +4,14 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/slices/userSlice";
-import { LOGO } from "../utils/constants";
+import { toggleGptSeacrch } from "../utils/slices/gptSlice";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { changeLanguage } from "../utils/slices/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const showGptLang = useSelector((store) => store.gpt.gptSeacrchView);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -49,16 +52,44 @@ const Header = () => {
       });
   };
 
+  const handleGptSearch = () => {
+    dispatch(toggleGptSeacrch());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img className="w-44" src={LOGO} alt="Logo" />
       {user && (
-        <button
-          onClick={handleSignOut}
-          className="my-4 px-4 bg-red-700 rounded-md text-white font-semibold text-center cursor-pointer"
-        >
-          Sign Out
-        </button>
+        <div className="flex p-2">
+          {showGptLang && (
+            <select
+              className="p-2 m-2 bg-gray-900 text-white"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className="py-2 px-4 mx-2 my-2 bg-purple-800 text-white rounded-lg cursor-pointer"
+            onClick={handleGptSearch}
+          >
+            {showGptLang ? "Home Page" : "GPT Search"}
+          </button>
+          <button
+            onClick={handleSignOut}
+            className="py-2 px-4 mx-2 my-2 bg-red-700 rounded-md text-white font-semibold text-center cursor-pointer"
+          >
+            Sign Out
+          </button>
+        </div>
       )}
     </div>
   );

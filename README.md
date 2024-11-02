@@ -30,8 +30,16 @@
 - update store with trailer video data
 - embede the youtube video amd make it autoplay and mute
 - we added tailwind classes to main container to look awesome
-
-.. # Features
+- built secondry container
+- build movie list
+- TMDB Image CDN URL
+- Made the browser page amazing with Tialwind css
+- usePopoularMovie custom hook
+- GPT search page
+- GPT search bar
+- Multi language feature in our app
+- Integrate GPT API's(get open AI API key)
+  .. # Features
 
 - Login Signup page
 - Signin/ signup page
@@ -40,9 +48,9 @@
 
   - Header
   - Main Movie
-  - Trailer in bacjground
+  - Trailer in background
   - Title in description
-  - MOvie SUggestions
+  - Movie SUggestions
   - Movies List \* n\
 
 - Netflix gpt
