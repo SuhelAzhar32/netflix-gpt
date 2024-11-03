@@ -39,10 +39,13 @@
 - GPT search bar
 - Multi language feature in our app
 - Integrate GPT API's(get open AI API key)
-- gpt search result page 
+- gpt search result page
 - fetch data from gpt api and display into the page
-
-
+- create gptSlice
+- reuse movieList component
+- memoization to prevent multiple api call
+- adding .env file
+- make responsive
 
   .. # Features
 

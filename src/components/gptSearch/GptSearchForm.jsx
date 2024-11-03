@@ -47,10 +47,10 @@ const GptSearchForm = () => {
   // search movie in TMDB
 
   return (
-    <div className="pt-[10%] flex justify-center">
-      <form className="w-1/2 grid grid-cols-12 rounded-lg bg-black">
+    <div className="pt-[40%] md:pt-[10%] flex justify-center">
+      <form className="w-full md:w-1/2 grid grid-cols-12 rounded-lg bg-black">
         <input
-          className="p-4 m-4 col-span-9 rounded-md"
+          className=" p-4 m-4 col-span-9 rounded-md"
           type="text"
           ref={serachText}
           placeholder={lang[langKey].gptSearchPlaceholder}

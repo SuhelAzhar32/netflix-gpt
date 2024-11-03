@@ -5,13 +5,15 @@ import GptSearchContainer from "../components/gptSearch/GptSearchContainer";
 
 const GptSearch = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img src={BG_LOGO} alt="bg-img" />
+        <img className="h-screen object-cover" src={BG_LOGO} alt="bg-img" />
       </div>
-      <GptSearchForm />
-      <GptSearchContainer />
-    </div>
+      <div className="">
+        <GptSearchForm />
+        <GptSearchContainer />
+      </div>
+    </>
   );
 };
 
