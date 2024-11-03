@@ -6,7 +6,7 @@ import GptSearchContainer from "../components/gptSearch/GptSearchContainer";
 const GptSearch = () => {
   return (
     <div>
-      <div className="absolute -z-10">
+      <div className="fixed -z-10">
         <img src={BG_LOGO} alt="bg-img" />
       </div>
       <GptSearchForm />

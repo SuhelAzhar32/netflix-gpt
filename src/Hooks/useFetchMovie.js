@@ -5,10 +5,9 @@ import { addNowPlayingMovies } from "../utils/slices/moviesSlice";
 
 const useFetchMovie = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    getNowPlayingMovies();
-  }, []);
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
 
   const getNowPlayingMovies = async () => {
     try {
@@ -22,6 +21,10 @@ const useFetchMovie = () => {
       throw new Error(error);
     }
   };
+
+  useEffect(() => {
+    !nowPlayingMovies && getNowPlayingMovies();
+  }, []);
 };
 
 export default useFetchMovie;
